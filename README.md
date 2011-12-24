@@ -1,4 +1,5 @@
 #ml2
+this readme is incomplete. stick to the installation.sh for now.
 
 ##Installation
 This guide assumes you have installed the following software:
