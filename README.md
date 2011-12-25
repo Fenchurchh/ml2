@@ -1,77 +1,102 @@
-#ml2
-this readme is incomplete. stick to the installation.sh for now.
+#The short version
+complete these in order
 
-##Installation
-This guide assumes you have installed the following software:
+> set up [couchdb](wiki/couchdb)  
+> set up [nginx](wiki/nginx)  
+> set up [node](wiki/node)  
+> set up [network ips](wiki/network-ips) _If you want to have fancy network access to the services_  
+> set up [domains](wiki/domains)  
 
-* __http://couchdb.org__ 
-* __http://nodejs.org__
-* __http://nginx.com__ or another http server for static files.
+Now build and deploy the current code
 
-For deployment and building, run these commands (maybe you need to `sudo`)
+    cake build:push
 
-* `curl http://npmjs.org/install.sh | sh` to install the [node package manager](__http://npmjs.org__)
-* `npm install -g kanso` to install the couchapp build tools of [kanso](__http://kan.so__), for windows,
-see http://kan.so/docs/Installing_on_Windows
-* `npm install -g coffee-script` to install the current build system's base, cake.
+And try accessing the couchapp at
+
+__<http://makellos.tld>__
+
+For detailed help, look through the [wiki pages](ml2/wiki/_pages)
+
+***
+
+#The longer version
+
+##Required software
+Install the following software:
+
+> __http://couchdb.org__  
+> __http://nodejs.org__  
+> __http://nginx.com__ or another http server for static files.  
+> `curl http://npmjs.org/install.sh | sh` to install the [node package manager](__http://npmjs.org__)  
+> `npm install -g kanso` to install the couchapp build tools of [kanso](__http://kan.so__). For windows,
+see http://kan.so/docs/Installing_on_Windows  
+> `npm install -g coffee-script` to install the current build system's base, cake.
+
+***
 
 ##General setup
-The general setup of ml2 has your couchdb act as the site's http server under the _second level
-domain_ as well as the www-domain. Its main purposes are hosting a couchapp and thereby serving the 
-html markup and answer json queries. 
+The couchdb hosts a couchapp, while static content is being served by a dedicated
+server and more complicated interaction is being handled by a node server. 
+This is the scheme of how the components are set up:
 
-##Network setup
-_Making your services accessible at their respective subdomain and on port 80. You can run couchdb and the node server __locally__ or on a __remote__, e.g. virtual machine_
+<table>  
+    <thead>
+        <tr><th>service</th><th>domain (<a href="ml2/wiki/domains">setting up domains</a>)</th><th>bound to socket (<a href="ml2/wiki/ips">settings up ip addresses</a>)</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>couchdb<br /><a href="ml2/wiki/couchdb">setting up couchdb</a></td>
+            <td>
+                <code>http://makellos.tld</code><br />
+                <code>http://www.makellos.tld</code><br />
+                <code>http://couch.tld</code> <em>no vhost</em></td>
+            <td><code>127.0.1.1 : 80</code> or <code>192.168.m.61 : 80</code></td>
+        </tr>
+        <tr><td>node<br /><a href="ml2/wiki/node">setting up node</a></td>
+            <td><code>http://api.makellos.tld</code></td>
+            <td><code>127.0.2.1 : 80</code> or <code>192.168.m.62 : 80</code></td>
+        </tr>
+        <tr><td>nginx<br /><a href="ml2/wiki/nginx">setting up nginx</a></td>
+            <td><code>http://cdn.makellos.tld</code></td>
+            <td><code>127.0.3.1 : 80</code> or <code>192.168.m.63 : 80</code></td>
+        </tr>
+    </tbody>
 
-###Accessing the services _locally_
-If you just want to develop, test and host the services on the same (local) machine, 
-you need to edit your `hosts` file and add some ip aliases to it. Open the file like so:
-
-    sudo vim /etc/hosts
-
-Now, add these lines:
-
-    127.0.1.1       makellos.localhost
-    127.0.2.1       www.makellos.localhost
-    127.0.3.1       api.makellos.localhost
-    127.0.4.1       cdn.makellos.localhost
-
-This points every program trying to lookup these domain names to your local machine. 
-
-Some notes: 
-
-* Any `127.0.x.1` address will point to your loopback interface, the actual 
-ip you use for the sub domains doesn't matter.
-* `localhost` is assumed to be the "top level domain" we use here. If you wanted to, 
-you can change this as well. In the setup of the author, all services run in a virtual machine,
-so the setup uses `vm` as the tld, other suggestions are `local`, `loc`, `ml` 
-or just `l` (although `local` is not recommended for macintosh networks).
+</table>
 
 
-###Accessing the services over the _network_
-If you want develop and test on one machine and have the services run on a different, 
-maybe even a virtual machine, you need to add alias ip addresses to the ethernet interface 
-(not the loopback interface). Basically, you add aliases like this:
+##Conventions
 
-    ifconfig eth0:0 192.168.0.6 up
-    
-For making the aliases permanent, see [this](http://www.cyberciti.biz/faq/linux-creating-or-adding-new-network-alias-to-a-network-card-nic/)
-for further reading. 
+* `tld`
+the top level domain of the development setup. 
 
-##
-You can run all the node, couch and nginx services on one server under different ports and 
-have them respond on port 80 but different sub domains.
+* `http://couch.tld`
+For the build system and for convenience, we make couchdb accessible at this domain.
 
-First, enable network address translation
+* `127.0.n.1`
+Your services need to bind to unique _sockets_ (combination of ip and port).
+So, to be able to run every service on the same port (default is 80), they need to [bind to different 
+ip addresses](ml2/wiki/ips). Every one of these ips is a valid address of your local loopback 
+interface to bind to.
 
-    sysctl -w net.ipv4.ip_forward=1
-    
-You will probably have to restart for this to take effect.
-Next, add the proper routes. Assuming your couch 
+* `192.168.m.n`
+You can also [create ip address aliases for you _network interface_](ml2/wiki/network-ips), so that your 
+machine will be available under several ip addresses in your local area network.  
+_This is just needed in case you want to access the services over a network_
 
+***
 
+##Build and deploy process
+Right now, building and deployment is done through a __cake__ build file. Have a look at `settings.coffee` 
+for detailed configuration. 
 
+* `cake build       ` compiles the raw files
+* `cake push        ` deploys everything to the services
+* `cake build:push  ` compiles & deploys at once
 
+***
+
+##Running
+Access the couchapp at <http://makellos.tld>
 
 
 
