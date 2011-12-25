@@ -1,0 +1,288 @@
+info it worked if it ends with ok
+verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'follow' ]
+info using npm@1.1.0-beta-4
+info using node@v0.6.6
+verbose config file /home/skiqh/.npmrc
+verbose config file /usr/local/etc/npmrc
+verbose config file /usr/local/lib/node_modules/npm/npmrc
+verbose into /mnt/julian/Projekte/ml2/backend/node [ 'follow' ]
+verbose cache add follow
+verbose cache add [ 'follow', null ]
+silly cache add: name, spec, args [ undefined, 'follow', [ 'follow', null ] ]
+verbose parsed url { pathname: 'follow', path: 'follow', href: 'follow' }
+verbose addNamed [ 'follow', '' ]
+verbose addNamed [ null, '' ]
+silly name, range, hasData [ 'follow', '', false ]
+verbose raw, before any munging follow
+verbose url resolving [ 'https://registry.npmjs.org/', './follow' ]
+verbose url resolved https://registry.npmjs.org/follow
+verbose etag "5JVVK4EX1U4BUATDARCQRI2Q4"
+http GET https://registry.npmjs.org/follow
+http 304 https://registry.npmjs.org/follow
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     etag: '"5JVVK4EX1U4BUATDARCQRI2Q4"',
+silly get cb     date: 'Sun, 08 Jan 2012 13:16:27 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag follow from cache
+silly name, range, hasData 2 [ 'follow', '', true ]
+silly versions [ 'follow',
+silly versions   [ '0.1.0',
+silly versions     '0.2.0',
+silly versions     '0.4.0',
+silly versions     '0.4.1',
+silly versions     '0.5.0',
+silly versions     '0.6.0',
+silly versions     '0.6.1',
+silly versions     '0.7.0' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.0-fips-v83.6.6.14-linux-ia32-2.6.32-131.0.15.el6.i686',
+verbose bin dist   { shasum: 'e40d619e00c4477512fee66bf943fbc7e31e36cc',
+verbose bin dist     tarball: 'http://registry.npmjs.org/follow/-/follow-0.7.0.tgz' } ]
+verbose caching /home/skiqh/.npm/follow/0.7.0/package/package.json
+verbose loadDefaults follow@0.7.0
+silly resolved [ { name: 'follow',
+silly resolved     version: '0.7.0',
+silly resolved     author: { name: 'Jason Smith', email: 'jhs@iriscouch.com' },
+silly resolved     description: 'Extremely robust, fault-tolerant CouchDB changes follower',
+silly resolved     keywords: [ 'couchdb', 'changes', 'sleep', 'sleepy' ],
+silly resolved     homepage: 'http://github.com/iriscouch/follow',
+silly resolved     repository: { type: 'git', url: 'git://github.com/iriscouch/follow.git' },
+silly resolved     engines: [ 'node', node: '*' ],
+silly resolved     dependencies: { request: '~2.2.5' },
+silly resolved     devDependencies: { tap: '~0.1.3', traceback: '~0.3.0' },
+silly resolved     main: './api.js',
+silly resolved     bin: { follow: './cli.js' },
+silly resolved     _id: 'follow@0.7.0',
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.0-beta-4',
+silly resolved     _nodeVersion: 'v0.6.6',
+silly resolved     _defaultsLoaded: true,
+silly resolved     scripts: {} } ]
+info into /mnt/julian/Projekte/ml2/backend/node follow@0.7.0
+info installOne follow@0.7.0
+info unbuild /mnt/julian/Projekte/ml2/backend/node/node_modules/follow
+verbose from cache /home/skiqh/.npm/follow/0.7.0/package/package.json
+verbose mkdir (expected) error ENOENT, no such file or directory '/mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm'
+verbose mkdir done: /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm 755
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /mnt/julian/Projekte/ml2/backend/node/node_modules/follow
+silly gunzTarPerm modes [ '755', '644' ]
+silly afterUntar undefined
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package/.npmignore
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package/api.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package/cli.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package/LICENSE
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package/package.json
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package/Rakefile
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package/README.md
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package/browser
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package/browser/eventemitter2.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package/browser/export.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package/browser/index.html
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package/browser/jquery-1.6.1.min.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package/browser/log4js.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package/browser/main.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package/browser/querystring.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package/browser/request.jquery.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package/browser/require.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package/browser/util.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package/lib
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package/lib/feed.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package/lib/index.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package/lib/stream.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package/test
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package/test/couch.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package/test/follow.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package/test/issues.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package/test/stream.js
+verbose gunzed /mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package
+verbose rm'ed /mnt/julian/Projekte/ml2/backend/node/node_modules/follow
+verbose renamed [ '/mnt/julian/Projekte/ml2/backend/node/node_modules/___follow.npm/package',
+verbose renamed   '/mnt/julian/Projekte/ml2/backend/node/node_modules/follow' ]
+verbose caching /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/package.json
+verbose loadDefaults follow@0.7.0
+info preinstall follow@0.7.0
+verbose from cache /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/package.json
+verbose into /mnt/julian/Projekte/ml2/backend/node/node_modules/follow [ 'request@~2.2.5' ]
+verbose cache add request@~2.2.5
+verbose cache add [ 'request@~2.2.5', null ]
+silly cache add: name, spec, args [ undefined, 'request@~2.2.5', [ 'request@~2.2.5', null ] ]
+verbose parsed url { pathname: 'request@~2.2.5',
+verbose parsed url   path: 'request@~2.2.5',
+verbose parsed url   href: 'request@~2.2.5' }
+silly cache add: name, spec, args [ 'request', '~2.2.5', [ 'request', '~2.2.5' ] ]
+verbose parsed url { pathname: '~2.2.5', path: '~2.2.5', href: '~2.2.5' }
+verbose addNamed [ 'request', '~2.2.5' ]
+verbose addNamed [ null, '>=2.2.5- <2.3.0-' ]
+silly name, range, hasData [ 'request', '>=2.2.5- <2.3.0-', false ]
+verbose raw, before any munging request
+verbose url resolving [ 'https://registry.npmjs.org/', './request' ]
+verbose url resolved https://registry.npmjs.org/request
+verbose etag "CXPNGRJZBBWPW2ORSDT0YG93S"
+http GET https://registry.npmjs.org/request
+http 304 https://registry.npmjs.org/request
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     etag: '"CXPNGRJZBBWPW2ORSDT0YG93S"',
+silly get cb     date: 'Sun, 08 Jan 2012 13:16:28 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag request from cache
+silly name, range, hasData 2 [ 'request', '>=2.2.5- <2.3.0-', true ]
+silly versions [ 'request',
+silly versions   [ '0.10.0',
+silly versions     '0.8.3',
+silly versions     '0.9.0',
+silly versions     '0.9.1',
+silly versions     '0.9.5',
+silly versions     '1.0.0',
+silly versions     '1.1.0',
+silly versions     '1.1.1',
+silly versions     '1.2.0',
+silly versions     '1.9.0',
+silly versions     '1.9.1',
+silly versions     '1.9.2',
+silly versions     '1.9.3',
+silly versions     '1.9.5',
+silly versions     '1.9.7',
+silly versions     '1.9.8',
+silly versions     '1.9.9',
+silly versions     '2.0.0',
+silly versions     '2.0.1',
+silly versions     '2.0.2',
+silly versions     '2.0.3',
+silly versions     '2.0.4',
+silly versions     '2.0.5',
+silly versions     '2.1.0',
+silly versions     '2.1.1',
+silly versions     '2.2.0',
+silly versions     '2.2.5',
+silly versions     '2.2.6',
+silly versions     '2.2.9',
+silly versions     '2.9.0',
+silly versions     '2.9.1',
+silly versions     '2.9.2',
+silly versions     '2.9.3' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.0-fips-v83.6.6.14-linux-ia32-2.6.32-131.0.15.el6.i686',
+verbose bin dist   { shasum: 'efbf8afbfe7f1e200d483b99752b6c42b404a0f1',
+verbose bin dist     tarball: 'http://registry.npmjs.org/request/-/request-2.2.9.tgz' } ]
+verbose caching /home/skiqh/.npm/request/2.2.9/package/package.json
+verbose loadDefaults request@2.2.9
+silly resolved [ { name: 'request',
+silly resolved     description: 'Simplified HTTP request client.',
+silly resolved     tags: [ 'http', 'simple', 'util', 'utility' ],
+silly resolved     version: '2.2.9',
+silly resolved     author: { name: 'Mikeal Rogers', email: 'mikeal.rogers@gmail.com' },
+silly resolved     repository: { type: 'git', url: 'git://github.com/mikeal/request.git' },
+silly resolved     bugs: { url: 'http://github.com/mikeal/request/issues' },
+silly resolved     engines: [ 'node >= 0.3.6', node: ' >= 0.3.6' ],
+silly resolved     main: './main',
+silly resolved     scripts: { test: 'bash tests/run.sh' },
+silly resolved     _id: 'request@2.2.9',
+silly resolved     dependencies: {},
+silly resolved     devDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.0-beta-4',
+silly resolved     _nodeVersion: 'v0.6.6',
+silly resolved     _defaultsLoaded: true } ]
+info into /mnt/julian/Projekte/ml2/backend/node/node_modules/follow request@2.2.9
+info installOne request@2.2.9
+info unbuild /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/request
+verbose from cache /home/skiqh/.npm/request/2.2.9/package/package.json
+verbose mkdir (expected) error ENOENT, no such file or directory '/mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules'
+verbose mkdir (expected) error ENOENT, no such file or directory '/mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/___request.npm'
+verbose mkdir done: /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/___request.npm 755
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/request
+silly gunzTarPerm modes [ '755', '644' ]
+silly afterUntar undefined
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/___request.npm/package
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/___request.npm/package/LICENSE
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/___request.npm/package/main.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/___request.npm/package/mimetypes.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/___request.npm/package/oauth.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/___request.npm/package/package.json
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/___request.npm/package/README.md
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/___request.npm/package/uuid.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/___request.npm/package/tests
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/___request.npm/package/tests/googledoodle.png
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/___request.npm/package/tests/run.sh
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/___request.npm/package/tests/server.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/___request.npm/package/tests/test-body.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/___request.npm/package/tests/test-cookie.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/___request.npm/package/tests/test-cookiejar.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/___request.npm/package/tests/test-errors.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/___request.npm/package/tests/test-oauth.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/___request.npm/package/tests/test-pipes.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/___request.npm/package/tests/test-proxy.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/___request.npm/package/tests/test-timeout.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/___request.npm/package/vendor
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/___request.npm/package/vendor/cookie
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/___request.npm/package/vendor/cookie/index.js
+silly asyncMap in gTP /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/___request.npm/package/vendor/cookie/jar.js
+verbose gunzed /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/___request.npm/package
+verbose rm'ed /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/request
+verbose renamed [ '/mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/___request.npm/package',
+verbose renamed   '/mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/request' ]
+verbose caching /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/request/package.json
+verbose loadDefaults request@2.2.9
+info preinstall request@2.2.9
+verbose from cache /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/request/package.json
+verbose into /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/request []
+silly resolved []
+verbose about to build /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/request
+info build /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/request
+verbose from cache /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules/request/package.json
+verbose linkStuff [ false,
+verbose linkStuff   false,
+verbose linkStuff   false,
+verbose linkStuff   '/mnt/julian/Projekte/ml2/backend/node/node_modules/follow/node_modules' ]
+info linkStuff request@2.2.9
+verbose linkBins request@2.2.9
+verbose linkMans request@2.2.9
+verbose rebuildBundles request@2.2.9
+info install request@2.2.9
+info postinstall request@2.2.9
+verbose installOne cb request@2.2.9
+verbose about to build /mnt/julian/Projekte/ml2/backend/node/node_modules/follow
+info build /mnt/julian/Projekte/ml2/backend/node/node_modules/follow
+verbose from cache /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/package.json
+verbose linkStuff [ false,
+verbose linkStuff   false,
+verbose linkStuff   false,
+verbose linkStuff   '/mnt/julian/Projekte/ml2/backend/node/node_modules' ]
+info linkStuff follow@0.7.0
+verbose linkBins follow@0.7.0
+verbose bins linking [ { follow: './cli.js' },
+verbose bins linking   '/mnt/julian/Projekte/ml2/backend/node/node_modules/.bin',
+verbose bins linking   false ]
+verbose linkMans follow@0.7.0
+verbose rebuildBundles follow@0.7.0
+verbose rebuildBundles [ 'request' ]
+ERR! error installing follow@0.7.0
+info unbuild /mnt/julian/Projekte/ml2/backend/node/node_modules/follow
+verbose from cache /mnt/julian/Projekte/ml2/backend/node/node_modules/follow/package.json
+info preuninstall follow@0.7.0
+info uninstall follow@0.7.0
+verbose unbuild follow@0.7.0 [ true,
+verbose unbuild follow@0.7.0   '/mnt/julian/Projekte/ml2/backend/node/node_modules',
+verbose unbuild follow@0.7.0   '/mnt/julian/Projekte/ml2/backend/node/node_modules' ]
+verbose binRoot [ '/mnt/julian/Projekte/ml2/backend/node/node_modules/.bin',
+verbose binRoot   { follow: './cli.js' } ]
+info postuninstall follow@0.7.0
+verbose installOne cb follow@0.7.0
+ERR! Error: UNKNOWN, unknown error '../follow/cli.js'
+ERR! Report this *entire* log at:
+ERR!     <http://github.com/isaacs/npm/issues>
+ERR! or email it to:
+ERR!     <npm-@googlegroups.com>
+ERR! 
+ERR! System Linux 2.6.32-131.0.15.el6.i686
+ERR! command "node" "/usr/local/bin/npm" "install" "follow"
+ERR! cwd /mnt/julian/Projekte/ml2/backend/node
+ERR! node -v v0.6.6
+ERR! npm -v 1.1.0-beta-4
+ERR! path ../follow/cli.js
+ERR! code UNKNOWN
+ERR! message UNKNOWN, unknown error '../follow/cli.js'
+verbose exit [ 1, true ]

@@ -2,8 +2,12 @@
     "name": "backend",
     "version": "0.0.1",
     "description": "the makellos backend",
-    "attachments": ["index.html", "css", "js"],
+    "attachments": [ "index.html", "css", "js" ],
+    "modules": [ "lib" ],
+    "load": "lib/app", 
     "dependencies": {
-        "attachments": null       
-    }
+        "attachments": null,
+        "properties": null,
+        "modules": null    
+}
 }

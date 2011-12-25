@@ -1,0 +1,151 @@
+[
+
+    {
+        "type"          : "inserat",
+        "username"      : "skiqh",
+        "_id"           : "be38438fa87bb6db82cea2bd75000a4e",
+
+        "lage"          : {
+            "strasse"           : "Schiffstraße",
+            "hausnummer"        : 5,
+            "stadtteil"         : "Altstadt",
+            "plz"               : 79098,
+            "wohnungsnummer"    : 443
+        },
+        
+        "vermieter"     : {
+            "name"              : "Müller",
+            "vorname"           : "Thomas",
+            "anschrift"         : "Beringer Straße 7\n79114 Freiburg",
+            "telefon"           : "0761 111222-55"
+        },
+        
+        "umzugsdatum"   : "Fri, 23 Dec 2011 11:19:16 GMT",
+        
+        "kosten"        : {
+            "kaltmiete"         : 385,
+            "nebenkosten"       : 25,
+            "kaution"           : 770,
+            "baukostenzuschuss" : 0,
+            "mietvorauszahlung" : 0,
+            "mieterdarlehen"    : 0,
+            "abstandssumme"     : 0
+        },
+        
+        "ausstattung"   : {
+            "grundflaeche"       : 29,
+            "deckenhoehe"       : 240,
+            "anzahlzimmer"      : 1,
+            "extras"            : { 
+                "Bad"               :    [ "Dusche", "WC", "Waschmaschinenanschluss" ],
+                "Kuechenzeile"       :    [ "Herd", "Backofen", "Kühlschrank", "Spüle"]
+            }
+        },
+        
+        "grundriss"     : {},
+        
+        "bilder"        : {
+            "cdn"          : "42",
+            "Zimmer1"           : [ 
+                "0E1EE5F4BA694880A56BEF59A106899A.jpg", 
+                "9FE92B4173D04DD582416EEFC93C6A6C.jpg", 
+                "2C081CF2A2444087AB7318C4E55A6BF3.jpg", 
+                "994673F88999400EAAA42FCB0EC5F4CD.jpg"
+            ],
+            "Bad"               : [
+                "46CD5DE57F884CAFAB4061CE45B56D7F.jpg",
+                "F0B51DDDBF1146FDA21CBB520B2A2812.jpg"
+            ],
+            "Kuechenzeile"       : [
+                "BC04A58C3BD54A3D8F4851A029F53DB7.jpg",
+                "891A29800B094967B68705C1A00B3F96.jpg",
+                "166EB4FE92F3433E9D136969D35FA215.jpg"
+            ]
+        },
+        
+        "besichtigungstermine"  : {
+            "Sun, 15 May 2011 10:37:37 GMT" : [ "skiqh", "mirko", "martin", "simon" ],
+            "Tue, 17 May 2011 10:37:37 GMT" : [ "karl", "philipp", "lion", "lena" ],
+            "Sun, 22 May 2011 10:37:37 GMT" : [ "susanne", "katharina", "jörg" ]
+        }
+        
+    
+    },
+    {
+        "type"          : "inserat",
+        "username"      : "gesa",
+        "_id"           : "cd38438fa87bb6db82cea2bd71001a4e",
+
+        "lage"          : {
+            "strasse"           : "Kreuzstraße",
+            "hausnummer"        : 32,
+            "stadtteil"         : "Stühlinger",
+            "plz"               : 79114,
+            "wohnungsnummer"    : null
+        },
+        
+        "vermieter"     : {
+            "name"              : "Kubizki",
+            "vorname"           : "Winfried",
+            "anschrift"         : "Kreuzstraße 32\n79114 Freiburg",
+            "telefon"           : "0761 543210"
+        },
+        
+        "umzugsdatum"   : "Sat, 24 Dec 2011 11:19:16 GMT",
+        
+        "kosten"        : {
+            "kaltmiete"         : 240,
+            "nebenkosten"       : 65,
+            "kaution"           : 480,
+            "baukostenzuschuss" : 0,
+            "mietvorauszahlung" : 0,
+            "mieterdarlehen"    : 0,
+            "abstandssumme"     : 0
+        },
+        
+        "ausstattung"   : {
+            "grundflaeche"      : 14,
+            "deckenhoehe"       : 310,
+            "anzahlzimmer"      : 1,
+            "extras"            : { 
+                "Gemeinschaftsbad" :    [ "Dusche", "WC" ],
+                "Kueche"           :    [ "Herd", "Backofen", "Kühlschrank", "Spüle" ]
+            }
+        },
+        
+        "grundriss"     : {},
+        
+        "bilder"        : {
+            "cdn"          : "17",
+            "Zimmer1"           : [ 
+                "1E1EE5F4BA694880A56BEF59A106899A.jpg", 
+                "AFE92B4173D04DD582416EEFC93C6A6C.jpg", 
+                "3C081CF2A2444087AB7318C4E55A6BF3.jpg", 
+                "A94673F88999400EAAA42FCB0EC5F4CD.jpg"
+            ],
+            "Gemeinschaftsbad"  : [
+                "56CD5DE57F884CAFAB4061CE45B56D7F.jpg",
+                "00B51DDDBF1146FDA21CBB520B2A2812.jpg"
+            ],
+            "Kueche"            : [
+                "CC04A58C3BD54A3D8F4851A029F53DB7.jpg",
+                "991A29800B094967B68705C1A00B3F96.jpg",
+                "266EB4FE92F3433E9D136969D35FA215.jpg"
+            ]
+        },
+        
+        "besichtigungstermine"  : {
+            "Sun, 15 May 2011 10:37:37 GMT" : [ "skiqh", "mirko", "martin", "simon" ],
+            "Tue, 17 May 2011 10:37:37 GMT" : [ "karl", "philipp", "lion", "lena" ],
+            "Sun, 22 May 2011 10:37:37 GMT" : [ "susanne", "katharina", "joerg" ]
+        }
+        
+    
+    }
+    
+
+]
+
+
+
+
