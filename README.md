@@ -19,22 +19,23 @@ This is the scheme of how the components are set up:
 
 <table>  
     <thead>
-        <tr><th>service</th><th>answers at</th><th>bound to socket (defaults)</th></tr>
+        <tr><th>service</th><th>domain (<a href="ml2/wiki/domains">setting up domains</a>)</th><th>bound to socket (<a href="ml2/wiki/ips">settings up ip addresses</a>)</th></tr>
     </thead>
     <tbody>
-        <tr><td rowspan="3">couchdb</td>
-            <td>http://makellos.tld</td>
-            <td rowspan="3"><pre>127.0.1.1 : 80</pre></td>
+        <tr><td>couchdb<br /><a href="ml2/wiki/couchdb">setting up couchdb</a></td>
+            <td>
+                <code>http://makellos.tld</code><br />
+                <code>http://www.makellos.tld</code><br />
+                <code>http://couch.tld</code> <strong>no vhost</strong></td>
+            <td><code>127.0.1.1 : 80</code></td>
         </tr>
-        <tr><td>http://www.makellos.tld</td></tr>
-        <tr><td>http://couch.tld</td></tr>
-        <tr><td>node</td>
-            <td>http://api.makellos.tld</td>
-            <td><pre>127.0.2.1 : 80</pre></td>
+        <tr><td>node<br /><a href="ml2/wiki/node">setting up node</a></td>
+            <td><code>http://api.makellos.tld</code></td>
+            <td><code>127.0.2.1 : 80</code></td>
         </tr>
-        <tr><td>nginx</td>
-            <td>http://cdn.makellos.tld</td>
-            <td><pre>127.0.3.1 : 80</pre></td>
+        <tr><td>nginx<br /><a href="ml2/wiki/nginx">setting up nginx</a></td>
+            <td><code>http://cdn.makellos.tld</code></td>
+            <td><code>127.0.3.1 : 80</code></td>
         </tr>
     </tbody>
 
