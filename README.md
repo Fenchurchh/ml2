@@ -1,29 +1,75 @@
 #ml2
 this readme is incomplete. stick to the installation.sh for now.
 
-##Installation
-This guide assumes you have installed the following software:
+##General setup
+A couchdb hosts a couchapp, while static content is being served by a dedicated
+server and more complicated interaction is being handled by a node server. 
+This is the scheme of how the components are set up:
+
+<table>  
+    <thead>
+        <tr><th>service</th><th>bound to local ip</th><th>bound to network ip</th><th>answers at</th><th>port</th></tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="2">couchdb</td><td rowspan="2">127.0.x.1</td><td rowspan="2">192.168.m.X</td><td>http://makellos.tld</td><td>80</td></tr>
+        <tr><td>http://www.makellos.tld</td><td>80</td></tr>
+        <tr><td>node</td><td>127.0.y.1</td><td>192.168.m.Y</td><td>http://api.makellos.tld</td><td>80</td></tr>
+        <tr><td>nginx</td><td>127.0.z.1</td><td>192.168.m.Z</td><td>http://cdn.makellos.tld</td><td>80</td></tr>
+    </tbody>
+    <tfoot>
+        <tr><td>default:</td><td><pre>x=1, y=2, z=3</pre></td></tr>
+    </tfoot>
+</table>
+
+Notes: 
+
+* `127.0.xyz.1`: Your services need to bind to different _sockets_ (combination of ip and port).
+So, to be able to run every service on port `80`, they need to bind to different ip addresses. Every 
+`127.0.xyz.1` ip is a valid address of your local loopback interface to bind to. So you can chose x, y and
+z to be any integer – just dont make them the same. This guide will assume for the following: `x=1, y=2, z=3`
+* `192.168.m.XYZ`: _This is just needed in case you want to access the services over a network – see below._
+
+##Required software
+Installe the following software:
 
 * __http://couchdb.org__ 
 * __http://nodejs.org__
 * __http://nginx.com__ or another http server for static files.
-
-For deployment and building, run these commands (maybe you need to `sudo`)
-
 * `curl http://npmjs.org/install.sh | sh` to install the [node package manager](__http://npmjs.org__)
-* `npm install -g kanso` to install the couchapp build tools of [kanso](__http://kan.so__), for windows,
+* `npm install -g kanso` to install the couchapp build tools of [kanso](__http://kan.so__). For windows,
 see http://kan.so/docs/Installing_on_Windows
 * `npm install -g coffee-script` to install the current build system's base, cake.
 
-##General setup
-The general setup of ml2 has your couchdb act as the site's http server under the _second level
-domain_ as well as the www-domain. Its main purposes are hosting a couchapp and thereby serving the 
-html markup and answer json queries. 
+##Build and deploy process
+Right now, building and deployment is done through a __cake__ build file. Have a look at `settings.coffee` 
+for detailed configuration. 
+
+* `cake build       ` compiles the raw files
+* `cake push        ` deploys everything to the services
+* `cake build:push  ` compiles & deploys at once
+
 
 ##Network setup
-_Making your services accessible at their respective subdomain and on port 80. You can run couchdb and the node server __locally__ or on a __remote__, e.g. virtual machine_
+Bind your services to different ip addresses and make them available at their respective 
+domain on port 80. You can have the services running _locally_ or on a _dedicated_ remote 
+machine.
 
-###Accessing the services _locally_
+##Running couchdb on __127.0.x.1:80__
+You have two options:
+* __Using futon__
+Run the couch service from the command line. It tells you where your couch is listening for
+http connections. The default is `http://127.0.0.1:5984`, so adjust the following as needed. 
+Open your couch's configuration at `http://127.0.0.1:5984/_utils/config.html` and from the 
+section `httpd`, locate the option `port`. 
+
+With a double click on the current port 
+(default: `5984`), make it editable and change it to `80`. The couch will very probably be 
+be immidiately unavailable. Check `http://127.0.0.1:80` or the console for errors.
+* __Changing couchdb's `local.ini`
+Open `/etc/couchdb/local.ini` in your editor. Change 
+
+##Running
+
 If you just want to develop, test and host the services on the same (local) machine, 
 you need to edit your `hosts` file and add some ip aliases to it. Open the file like so:
 
