@@ -1,43 +1,8 @@
 #ml2
 this readme is incomplete. stick to the installation.sh for now.
 
-##General setup
-A couchdb hosts a couchapp, while static content is being served by a dedicated
-server and more complicated interaction is being handled by a node server. 
-This is the scheme of how the components are set up:
-
-<table>  
-    <thead>
-        <tr><th>service</th><th>answers at</th><th style="width: 50%">bound to ip (examples)</th></tr>
-    </thead>
-    <tbody>
-        <tr><td rowspan="2">couchdb</td>
-            <td>http://makellos.tld</td>
-            <td rowspan="2"><pre>127.0.1.1</pre>or<pre>192.168.0.61</pre></td>
-        </tr>
-        <tr><td>http://www.makellos.tld</td></tr>
-        <tr><td>node</td>
-            <td>http://api.makellos.tld</td>
-            <td><pre>127.0.2.1</pre> or <pre>192.168.0.62</pre></td>
-        </tr>
-        <tr><td>nginx</td>
-            <td>http://cdn.makellos.tld</td>
-            <td><pre>127.0.3.1</pre> or <pre>192.168.0.63</pre></td>
-        </tr>
-    </tbody>
-
-</table>
-
-Notes: 
-
-* `127.0.xyz.1`: Your services need to bind to different _sockets_ (combination of ip and port).
-So, to be able to run every service on port `80`, they need to bind to different ip addresses. Every 
-`127.0.xyz.1` ip is a valid address of your local loopback interface to bind to. So you can chose x, y and
-z to be any integer – just dont make them the same. This guide will assume for the following: `x=1, y=2, z=3`
-* `192.168.m.XYZ`: _This is just needed in case you want to access the services over a network – see below._
-
 ##Required software
-Installe the following software:
+Install the following software:
 
 * __http://couchdb.org__ 
 * __http://nodejs.org__
@@ -47,25 +12,57 @@ Installe the following software:
 see http://kan.so/docs/Installing_on_Windows
 * `npm install -g coffee-script` to install the current build system's base, cake.
 
-##Build and deploy process
-Right now, building and deployment is done through a __cake__ build file. Have a look at `settings.coffee` 
-for detailed configuration. 
+##General setup
+The couchdb hosts a couchapp, while static content is being served by a dedicated
+server and more complicated interaction is being handled by a node server. 
+This is the scheme of how the components are set up:
 
-* `cake build       ` compiles the raw files
-* `cake push        ` deploys everything to the services
-* `cake build:push  ` compiles & deploys at once
+<table>  
+    <thead>
+        <tr><th>service</th><th>answers at</th><th>bound to socket (defaults)</th></tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="2">couchdb</td>
+            <td>http://makellos.tld</td>
+            <td rowspan="2"><pre>127.0.1.1 : 80</pre></td>
+        </tr>
+        <tr><td>http://www.makellos.tld</td></tr>
+        <tr><td>node</td>
+            <td>http://api.makellos.tld</td>
+            <td><pre>127.0.2.1 : 80</pre></td>
+        </tr>
+        <tr><td>nginx</td>
+            <td>http://cdn.makellos.tld</td>
+            <td><pre>127.0.3.1 : 80</pre></td>
+        </tr>
+    </tbody>
 
+</table>
 
-##Network setup
-Bind your services to different ip addresses and make them available at their respective 
-domain on port 80.
+Notes: 
 
-##Running couchdb on __port 80__
+* `tld`  
+the top level domain of the development setup. This can be any non-whitespace string, examples: 
+`localhost`, `loc`, `ml`, `tld`, `l`, `vm`. This guide will refer to it as `tld`.
+* `127.0.n.1`  
+Your services need to bind to unique _sockets_ (combination of ip and port).
+So, to be able to run every service on port `80`, they need to bind to different ip addresses. Every 
+`127.0.n.1` ip is a valid address of your local loopback interface to bind to. So you can chose n to be 
+any integer.
+* `192.168.m.n`  
+You can also create ip address aliases for you _network interface_, so that your 
+machine will be available under several ip addresses in your local area network. 
+_This is just needed in case you want to access the services over a network – see below._
+
+##Running couchdb
 _If couch is running as a service, stop it. It is generally advised that you run couchdb from
 the command line on your development machine; this way debugging is much easier._
-As we want several serives listening on port 80, we need to bind each of them to a 
+
+###Binding to port 80
+As we want several services listening on port 80, we need to bind each of them to a 
 different ip, so that no two services try to bind to the same socket (ip:port combination).
-Depending on wheater you want 
+Assuming you run want to run and access your couch locally only, this explains how to 
+bind couch to `127.0.1.1:80`
 
 You have two options:
 
@@ -75,9 +72,10 @@ http connections (the default is <http://127.0.0.1:5984>, so adjust the followin
 Open your couch's configuration at <http://127.0.0.1:5984/_utils/config.html> and locate the 
 section `httpd`. 
 Doubleclick the current value of the `bind_address` option (default `127.0.0.1`), change it to 
-`127.0.1.1` (conforming to the default `x=1`) and click the green checkmark to confirm. 
-The couch will very probably be immidiately unavailable; if all went well however, futon's 
-configuration site should be available at <http://127.0.1.1:5984/_utils/config.html>. 
+`127.0.1.1` (conforming to the default of this setup) and click the green checkmark to confirm. 
+The couch will very probably be immidiately unavailable.  
+If all went well however, futon's configuration site should be available at 
+<http://127.0.1.1:5984/_utils/config.html>. 
 Go there again, and under `httpd`, locate `port`, change it to `80` and click the green 
 checkmark to confirm. 
 Again, futon should immediately be unresponsive and now be available at <http://127.0.1.1/> 
@@ -92,6 +90,58 @@ that it is listening on <http://127.0.1.1:80>.
 Open `/etc/couchdb/local.ini` in your editor. Under the section `httpd`, change `port` and 
 `bind_address` to `80` and `127.0.1.1` respectively. Start couchdb from the command line (via `sudo`);
 it should report running on <http://127.0.1.1>.
+
+###Setting up virtual hosts
+Again, you have two options:
+
+* __using futon__  
+Go to <http://127.0.1.1/_utils/config.html>, scroll to the bottom and click __Add a new section__. 
+Fill in:
+
+    section:    vhosts
+    option:     makellos.tld
+    value:      /makellos/_design/app/_rewrite
+    
+Add another section and fill in:
+
+    section:    vhosts
+    option:     www.makellos.tld
+    value:      /makellos/_design/app/_rewrite
+
+* __using the command line__  
+Run these
+
+    curl -X PUT "$couchaddress/_config/vhosts/makellos.localhost" -d '"/makellos/_design/app/_rewrite"'
+    curl -X PUT "$couchaddress/_config/vhosts/www.makellos.localhost" -d '"/makellos/_design/app/_rewrite"'
+    
+
+
+
+##Running the node api server
+Run the following commands
+
+    cd api.makellos
+    sudo node run_dev_server.js
+    
+##Setting up nginx
+
+    server {
+        listen  192.168.110.60:80;
+        server_name cdn.makellos.vm;
+        location / {
+                root /home/skiqh/makellos/cdn.makellos.de/;
+        }
+    }
+
+##Build and deploy process
+Right now, building and deployment is done through a __cake__ build file. Have a look at `settings.coffee` 
+for detailed configuration. 
+
+* `cake build       ` compiles the raw files
+* `cake push        ` deploys everything to the services
+* `cake build:push  ` compiles & deploys at once
+
+
 
 ##Running
 
