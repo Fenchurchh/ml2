@@ -59,6 +59,12 @@ machine will be available under several ip addresses in your local area network.
 _This is just needed in case you want to access the services over a network – see below._
 
 
+##Running couchdb
+_See [setting up couchdb](wiki/couchdb) for how to setup couchdb properly._
+It is advised that you run your development couch from the console.
+
+    sudo couchdb
+
 ##Running the node api server
 Run the following commands
 
@@ -66,12 +72,12 @@ Run the following commands
     sudo node run_dev_server.js
     
 ##Setting up nginx
-
+Edit the file `/etc/nginx/conf.d/virtual.conf` and add a virtual server like so (adjust the path to cdn.makellos.tlb)
     server {
-        listen  192.168.110.60:80;
-        server_name cdn.makellos.vm;
+        listen  127.0.3.1:80;
+        server_name cdn.makellos.tld;
         location / {
-                root /home/skiqh/makellos/cdn.makellos.de/;
+                root /home/username/ml2/cdn.makellos.de/;
         }
     }
 
