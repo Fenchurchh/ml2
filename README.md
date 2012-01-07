@@ -8,17 +8,24 @@ This is the scheme of how the components are set up:
 
 <table>  
     <thead>
-        <tr><th>service</th><th>bound to local ip</th><th>bound to network ip</th><th>answers at</th><th>port</th></tr>
+        <tr><th>service</th><th>answers at</th><th style="width: 50%">bound to ip (examples)</th></tr>
     </thead>
     <tbody>
-        <tr><td rowspan="2">couchdb</td><td rowspan="2">127.0.x.1</td><td rowspan="2">192.168.m.X</td><td>http://makellos.tld</td><td>80</td></tr>
-        <tr><td>http://www.makellos.tld</td><td>80</td></tr>
-        <tr><td>node</td><td>127.0.y.1</td><td>192.168.m.Y</td><td>http://api.makellos.tld</td><td>80</td></tr>
-        <tr><td>nginx</td><td>127.0.z.1</td><td>192.168.m.Z</td><td>http://cdn.makellos.tld</td><td>80</td></tr>
+        <tr><td rowspan="2">couchdb</td>
+            <td>http://makellos.tld</td>
+            <td rowspan="2"><pre>127.0.1.1</pre>or<pre>192.168.0.61</pre></td>
+        </tr>
+        <tr><td>http://www.makellos.tld</td></tr>
+        <tr><td>node</td>
+            <td>http://api.makellos.tld</td>
+            <td><pre>127.0.2.1</pre> or <pre>192.168.0.62</pre></td>
+        </tr>
+        <tr><td>nginx</td>
+            <td>http://cdn.makellos.tld</td>
+            <td><pre>127.0.3.1</pre> or <pre>192.168.0.63</pre></td>
+        </tr>
     </tbody>
-    <tfoot>
-        <tr><td>default:</td><td><pre>x=1, y=2, z=3</pre></td></tr>
-    </tfoot>
+
 </table>
 
 Notes: 
@@ -51,22 +58,40 @@ for detailed configuration.
 
 ##Network setup
 Bind your services to different ip addresses and make them available at their respective 
-domain on port 80. You can have the services running _locally_ or on a _dedicated_ remote 
-machine.
+domain on port 80.
 
-##Running couchdb on __127.0.x.1:80__
+##Running couchdb on __port 80__
+_If couch is running as a service, stop it. It is generally advised that you run couchdb from
+the command line on your development machine; this way debugging is much easier._
+As we want several serives listening on port 80, we need to bind each of them to a 
+different ip, so that no two services try to bind to the same socket (ip:port combination).
+Depending on wheater you want 
+
 You have two options:
-* __Using futon__
-Run the couch service from the command line. It tells you where your couch is listening for
-http connections. The default is `http://127.0.0.1:5984`, so adjust the following as needed. 
-Open your couch's configuration at `http://127.0.0.1:5984/_utils/config.html` and from the 
-section `httpd`, locate the option `port`. 
 
-With a double click on the current port 
-(default: `5984`), make it editable and change it to `80`. The couch will very probably be 
-be immidiately unavailable. Check `http://127.0.0.1:80` or the console for errors.
-* __Changing couchdb's `local.ini`
-Open `/etc/couchdb/local.ini` in your editor. Change 
+* __Using futon__  
+Run the couch service from the command line. It tells you where your couch is listening for
+http connections (the default is <http://127.0.0.1:5984>, so adjust the following as needed). 
+Open your couch's configuration at <http://127.0.0.1:5984/_utils/config.html> and locate the 
+section `httpd`. 
+Doubleclick the current value of the `bind_address` option (default `127.0.0.1`), change it to 
+`127.0.1.1` (conforming to the default `x=1`) and click the green checkmark to confirm. 
+The couch will very probably be immidiately unavailable; if all went well however, futon's 
+configuration site should be available at <http://127.0.1.1:5984/_utils/config.html>. 
+Go there again, and under `httpd`, locate `port`, change it to `80` and click the green 
+checkmark to confirm. 
+Again, futon should immediately be unresponsive and now be available at <http://127.0.1.1/> 
+(leaving out the default port 80). It is very likely, however, that couch exited and you need 
+to start it again as sudo, as we are trying to bind to a restricted port (< 1024). So run 
+
+    `sudo couchdb` 
+and couchdb should tell you to relax and
+that it is listening on <http://127.0.1.1:80>.
+
+* __Changing couchdb's `local.ini`__  
+Open `/etc/couchdb/local.ini` in your editor. Under the section `httpd`, change `port` and 
+`bind_address` to `80` and `127.0.1.1` respectively. Start couchdb from the command line (via `sudo`);
+it should report running on <http://127.0.1.1>.
 
 ##Running
 
