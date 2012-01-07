@@ -60,7 +60,7 @@ _This is just needed in case you want to access the services over a network – 
 
 
 ##Running couchdb
-_See [setting up couchdb](wiki/couchdb) for how to setup couchdb properly._
+_See [setting up couchdb](ml2/wiki/couchdb) for how to setup couchdb properly._
 It is advised that you run your development couch from the console.
 
     sudo couchdb
