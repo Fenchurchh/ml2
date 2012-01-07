@@ -41,9 +41,10 @@ This is the scheme of how the components are set up:
 </table>
 
 Notes: 
+
 * `tld`  
-the top level domain of the development setup. This can be any non-whitespace string, examples: 
-`localhost`, `loc`, `ml`, `tld`, `l`, `vm`. This guide will refer to it as `tld`.
+the top level domain of the development setup. This can be any non-whitespace string,  
+examples: `localhost`, `loc`, `ml`, `tld`, `l`, `vm`. __This guide will refer to it as `tld`__.
 * `http://couch.tld`  
 For conveneience, you can make couchdb accessible through `http://couch.tld`, _not to be rewritten
 to a couchapp_.
@@ -57,71 +58,6 @@ You can also create ip address aliases for you _network interface_, so that your
 machine will be available under several ip addresses in your local area network. 
 _This is just needed in case you want to access the services over a network – see below._
 
-##Setting up couchdb
-_If couch is running as a service, stop it. It is generally advised that you run couchdb from
-the command line on your development machine; this way debugging is much easier._
-  
-As we want several services listening on port 80, we need to bind each of them to a 
-different ip, so that no two services try to bind to the same socket (ip:port combination).
-Assuming you run want to run and access your couch locally only, this explains how to 
-bind couch to `127.0.1.1:80`
-
-###Binding to port 80 __using futon__  
-Run the couch service from the command line. It tells you where your couch is listening for
-http connections (the default is <http://127.0.0.1:5984>, so adjust the following as needed). 
-Open your couch's configuration at <http://127.0.0.1:5984/_utils/config.html> and locate the 
-section `httpd`. 
-Doubleclick the current value of the `bind_address` option (default `127.0.0.1`), change it to 
-`127.0.1.1` (conforming to the default of this setup) and click the green checkmark to confirm. 
-The couch will very probably be immidiately unavailable.  
-If all went well however, futon's configuration site should be available at 
-<http://127.0.1.1:5984/_utils/config.html>. 
-Go there again, and under `httpd`, locate `port`, change it to `80` and click the green 
-checkmark to confirm. 
-Again, futon should immediately be unresponsive and now be available at <http://127.0.1.1/> 
-(leaving out the default port 80). It is very likely, however, that couch exited and you need 
-to start it again as sudo, as we are trying to bind to a restricted port (< 1024). So run 
-
-    $ sudo couchdb
-    
-    Apache CouchDB has started. Time to relax.
-    [info] [<0.31.0>] Apache CouchDB has started on http://127.0.1.1:80/
-
-and couchdb should tell you to relax and
-that it is listening on <http://127.0.1.1:80>.
-
-###Binding to port 80 through __couchdb's `local.ini`__  
-Open `/etc/couchdb/local.ini` in your editor. Under the section `httpd`, change `port` and 
-`bind_address` to `80` and `127.0.1.1` respectively. Start couchdb from the command line (via `sudo`);
-it should report running on <http://127.0.1.1>.
-
-###Setting up virtual hosts __using futon__  
-Go to <http://127.0.1.1/_utils/config.html>, scroll to the bottom and click __Add a new section__. 
-Fill in:
-
-    section:    vhosts
-    option:     makellos.tld
-    value:      /makellos/_design/app/_rewrite
-    
-Add another section and fill in:
-
-    section:    vhosts
-    option:     www.makellos.tld
-    value:      /makellos/_design/app/_rewrite
-
-###Setting up virtual hosts __using the command line__  
-
-    curl -X PUT "127.0.1.1/_config/vhosts/makellos.tld" -d '"/makellos/_design/app/_rewrite"'
-    curl -X PUT "127.0.1.1/_config/vhosts/www.makellos.tld" -d '"/makellos/_design/app/_rewrite"'
-
-###Creating the databases
-
-    curl -X PUT "127.0.1.1/makellos"
-    curl -X PUT "127.0.1.1/inserate"
-
-###Setting the rewriteflag
-
-    curl -X PUT "$couchaddress/_config/httpd/secure_rewrites" -d '"false"'
 
 ##Running the node api server
 Run the following commands
