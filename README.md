@@ -1,5 +1,24 @@
-#ml2
-__this readme is incomplete. use it as an inspirational source__
+#The short version – complete these in order
+
+set up [couchdb](wiki/couchdb)  
+set up [nginx](wiki/nginx)  
+set up [node](wiki/node)  
+set up [network ips](wiki/network-ips) _If you want to have fancy network access to the services_  
+set up [domains](wiki/domains)  
+
+Now build and deploy the current code
+
+    cake build:push
+
+And try accessing the couchapp at
+
+    http://makellos.tld
+
+For detailed help, look through the [wiki pages](ml2/wiki/_pages)
+
+***
+
+#The longer version
 
 ##Required software
 Install the following software:
