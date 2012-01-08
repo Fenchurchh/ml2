@@ -1,10 +1,11 @@
-#The short version – complete these in order
+#The short version
+complete these in order
 
-set up [couchdb](wiki/couchdb)  
-set up [nginx](wiki/nginx)  
-set up [node](wiki/node)  
-set up [network ips](wiki/network-ips) _If you want to have fancy network access to the services_  
-set up [domains](wiki/domains)  
+> set up [couchdb](wiki/couchdb)  
+> set up [nginx](wiki/nginx)  
+> set up [node](wiki/node)  
+> set up [network ips](wiki/network-ips) _If you want to have fancy network access to the services_  
+> set up [domains](wiki/domains)  
 
 Now build and deploy the current code
 
@@ -12,7 +13,7 @@ Now build and deploy the current code
 
 And try accessing the couchapp at
 
-    http://makellos.tld
+__<http://makellos.tld>__
 
 For detailed help, look through the [wiki pages](ml2/wiki/_pages)
 
@@ -23,13 +24,13 @@ For detailed help, look through the [wiki pages](ml2/wiki/_pages)
 ##Required software
 Install the following software:
 
-* __http://couchdb.org__ 
-* __http://nodejs.org__
-* __http://nginx.com__ or another http server for static files.
-* `curl http://npmjs.org/install.sh | sh` to install the [node package manager](__http://npmjs.org__)
-* `npm install -g kanso` to install the couchapp build tools of [kanso](__http://kan.so__). For windows,
-see http://kan.so/docs/Installing_on_Windows
-* `npm install -g coffee-script` to install the current build system's base, cake.
+> __http://couchdb.org__  
+> __http://nodejs.org__  
+> __http://nginx.com__ or another http server for static files.  
+> `curl http://npmjs.org/install.sh | sh` to install the [node package manager](__http://npmjs.org__)  
+> `npm install -g kanso` to install the couchapp build tools of [kanso](__http://kan.so__). For windows,
+see http://kan.so/docs/Installing_on_Windows  
+> `npm install -g coffee-script` to install the current build system's base, cake.
 
 ***
 
