@@ -6,10 +6,12 @@ complete these in order
 > set up [node](wiki/node)  
 > set up [network ips](wiki/network-ips) _If you want to have fancy network access to the services_  
 > set up [domains](wiki/domains)  
+> edit [.kansorc](wiki/kansorc)
 
 Now build and deploy the current code
 
-    cake build:push
+    kanso install
+    kanso push
 
 And try accessing the couchapp at
 
