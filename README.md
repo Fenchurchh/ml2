@@ -45,7 +45,7 @@ are set up:
 
 <table>  
     <thead>
-        <tr><th>service</th><th>domain (<a href="ml2/wiki/domains">setting up domains</a>)</th><th>bound to socket (<a href="ml2/wiki/ips">setting up ip addresses</a>)</th></tr>
+        <tr><th>service</th><th>domain (<a href="ml2/wiki/domains">setting up domains</a>)</th><th>bound to socket (<a href="ml2/wiki/ip addresses">setting up ip addresses</a>)</th></tr>
     </thead>
     <tbody>
         <tr><td>couchdb<br /><a href="ml2/wiki/couchdb">setting up couchdb</a></td>
@@ -79,7 +79,7 @@ For the build system and for convenience, we make couchdb accessible at this dom
 * `127.0.n.1`
 Your services need to bind to unique _sockets_ (combination of ip and port).
 So, to be able to run every service on the same port (default is 80), they need to [bind to different 
-ip addresses](ml2/wiki/ips). Every one of these ips is a valid address of your local loopback 
+ip addresses](ml2/wiki/ip addresses). Every one of these ips is a valid address of your local loopback 
 interface to bind to.
 
 * `192.168.m.n`
