@@ -1,6 +1,7 @@
 #The short version
 complete these in order
 
+> get a couch, nginx, node, npm and kanso  
 > set up [couchdb](wiki/couchdb)  
 > set up [nginx](wiki/nginx)  
 > set up [node](wiki/node)  
@@ -33,18 +34,18 @@ Install the following software:
 > `curl http://npmjs.org/install.sh | sh` to install the [node package manager](__http://npmjs.org__)  
 > `npm install -g kanso` to install the couchapp build tools of [kanso](__http://kan.so__). For windows,
 see http://kan.so/docs/Installing_on_Windows  
-> `npm install -g coffee-script` to install the current build system's base, cake.
 
 ***
 
 ##General setup
 The couchdb hosts a couchapp, while static content is being served by a dedicated
-server and more complicated interaction is being handled by a node server. 
-This is the scheme of how the components are set up:
+server and more complicated interaction is being handled by a node server. Consult the
+[wiki](wiki) for setting up the single components and see this scheme of how they 
+are set up:
 
 <table>  
     <thead>
-        <tr><th>service</th><th>domain (<a href="ml2/wiki/domains">setting up domains</a>)</th><th>bound to socket (<a href="ml2/wiki/ips">settings up ip addresses</a>)</th></tr>
+        <tr><th>service</th><th>domain (<a href="ml2/wiki/domains">setting up domains</a>)</th><th>bound to socket (<a href="ml2/wiki/ips">setting up ip addresses</a>)</th></tr>
     </thead>
     <tbody>
         <tr><td>couchdb<br /><a href="ml2/wiki/couchdb">setting up couchdb</a></td>
@@ -89,12 +90,12 @@ _This is just needed in case you want to access the services over a network_
 ***
 
 ##Build and deploy process
-Right now, building and deployment is done through a __cake__ build file. Have a look at `settings.coffee` 
+Right now, building and deployment is done through kanso. Have a look at [.kansorc](ml2/wiki/kansorc) 
 for detailed configuration. 
 
-* `cake build       ` compiles the raw files
-* `cake push        ` deploys everything to the services
-* `cake build:push  ` compiles & deploys at once
+* `kanso install    ` run this if you updated `kanso.json`
+* `kanso push       ` run this to deploy everything to the default couchdb
+
 
 ***
 
