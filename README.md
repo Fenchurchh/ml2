@@ -8,8 +8,9 @@ complete these in order
 > set up [domains](wiki/domains)  
 > edit [.kansorc](wiki/kansorc)
 
-Now build and deploy the current code
+Now build and deploy the current code for the frontend
 
+    cd frontend/
     kanso install
     kanso push
 
