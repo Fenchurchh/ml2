@@ -118,26 +118,6 @@ so the setup uses `vm` as the tld, other suggestions are `local`, `loc`, `ml`
 or just `l` (although `local` is not recommended for macintosh networks).
 
 
-###Accessing the services over the _network_
-If you want develop and test on one machine and have the services run on a different, 
-maybe even a virtual machine, you need to add alias ip addresses to the ethernet interface 
-(not the loopback interface). Basically, you add aliases like this:
-
-    ifconfig eth0:0 192.168.0.6 up
-    
-For making the aliases permanent, see [this](http://www.cyberciti.biz/faq/linux-creating-or-adding-new-network-alias-to-a-network-card-nic/)
-for further reading. 
-
-##
-You can run all the node, couch and nginx services on one server under different ports and 
-have them respond on port 80 but different sub domains.
-
-First, enable network address translation
-
-    sysctl -w net.ipv4.ip_forward=1
-    
-You will probably have to restart for this to take effect.
-Next, add the proper routes. Assuming your couch 
 
 
 
