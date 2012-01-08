@@ -29,15 +29,15 @@ This is the scheme of how the components are set up:
                 <code>http://makellos.tld</code><br />
                 <code>http://www.makellos.tld</code><br />
                 <code>http://couch.tld</code> <em>no vhost</em></td>
-            <td><code>127.0.1.1 : 80</code></td>
+            <td><code>127.0.1.1 : 80</code> or <code>192.168.m.61 : 80</code></td>
         </tr>
         <tr><td>node<br /><a href="ml2/wiki/node">setting up node</a></td>
             <td><code>http://api.makellos.tld</code></td>
-            <td><code>127.0.2.1 : 80</code></td>
+            <td><code>127.0.2.1 : 80</code> or <code>192.168.m.62 : 80</code></td>
         </tr>
         <tr><td>nginx<br /><a href="ml2/wiki/nginx">setting up nginx</a></td>
             <td><code>http://cdn.makellos.tld</code></td>
-            <td><code>127.0.3.1 : 80</code></td>
+            <td><code>127.0.3.1 : 80</code> or <code>192.168.m.63 : 80</code></td>
         </tr>
     </tbody>
 
@@ -50,18 +50,18 @@ This is the scheme of how the components are set up:
 the top level domain of the development setup. 
 
 * `http://couch.tld`
-For convenience, we make couchdb accessible through `http://couch.tld`.
+For the build system and for convenience, we make couchdb accessible at this domain.
 
 * `127.0.n.1`
 Your services need to bind to unique _sockets_ (combination of ip and port).
-So, to be able to run every service on the same port (default is 80), they need to bind to different 
-ip addresses. Every one of these ips is a valid address of your local loopback interface to bind to. 
-So you can chose n to be any integer.
+So, to be able to run every service on the same port (default is 80), they need to [bind to different 
+ip addresses](ml2/wiki/ips). Every one of these ips is a valid address of your local loopback 
+interface to bind to.
 
 * `192.168.m.n`
-You can also create ip address aliases for you _network interface_, so that your 
-machine will be available under several ip addresses in your local area network. 
-_This is just needed in case you want to access the services over a network – see below._
+You can also [create ip address aliases for you _network interface_](ml2/wiki/network-ips), so that your 
+machine will be available under several ip addresses in your local area network.  
+_This is just needed in case you want to access the services over a network_
 
 ***
 
