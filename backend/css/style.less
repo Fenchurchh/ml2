@@ -1,3 +1,144 @@
+@keycolor: #FE4365;
+@keycolor-selection: @keycolor - #222;
+@keycolor-light: @keycolor + #111;
+@keycolor-lighter: @keycolor + #555;
+@keycolor-bright: @keycolor + #939393;
+
+@altkeycolor: #83AF9B;
+@altkeycolor-lighter: @altkeycolor + #111;
+
+@controlbg: #F2F2F2;
+@workareabg: #fff;
+
+body {
+  padding-top: 40px;
+}
+nav {
+  position: fixed;
+  right:0;
+  top: 0;
+  left: 0;
+  font-size: 2em;
+  height: 40px;
+  background: @altkeycolor;
+}
+
+nav ul li{
+  float: left;
+}
+nav ul li a {
+  margin: 0.1em 1em 0 0;
+  padding: 0.1em 0.2em;
+  text-decoration: none;
+  color: #333;
+}
+nav ul li a:hover{
+  text-decoration: none;
+  color: #222;
+  background: #ddd;
+}
+nav ul li a:visited{
+  color: #333;
+}
+
+aside {
+  float: left;
+  width: 300px;
+  overflow: hidden;
+  background: @controlbg;
+  border-right: 1px solid @keycolor-bright;
+  font-size: 0.7em;
+}
+aside section {
+  height: 1200px;
+}
+
+section {
+  float: left;
+  padding: 1em 2em;
+}
+
+.tile{
+  width: 300px;
+  float: left;
+  cursor: pointer;
+  padding: 1em;
+  border-color: @workareabg;
+  border-width: 1px;
+  border-style: solid;
+  margin-bottom: 15px;
+  .rounded-corners;
+}
+.tile:hover {
+  background: @workareabg - #040404;
+  border-color: @workareabg - #111 @workareabg - #222 @workareabg - #222 @workareabg - #111;
+}
+.tile:active {
+  border-color: @workareabg - #070707 @workareabg - #0b0b0b @workareabg - #0b0b0b @workareabg - #070707;
+}
+aside {
+  .tile {
+    width: 220px;
+    border-color: @controlbg;
+    -webkit-transition: all 0.1618s cubic-bezier(1,0,1,0);
+  }
+  .tile:hover {
+    background: @controlbg - #040404;
+    border-color: @controlbg - #111 @controlbg - #222 @controlbg - #222 @controlbg - #111;
+  }
+  .tile:active {
+    border-color: @controlbg - #070707 @controlbg - #0b0b0b @controlbg - #0b0b0b @controlbg - #070707;
+  }  
+}
+.progress {
+  width: 100%;
+  background: @keycolor-lighter;
+  height: 3px;
+}
+.progress>div {
+  background: @keycolor-light;
+  height: 3px;
+}
+.progress.p100>div{
+  width: 100%;
+  background-color: @controlbg - #111;
+}
+.progress.p80>div{
+  width: 80%;
+}
+.progress.p20>div{
+  width: 20%;
+}
+
+.tag {
+  padding: 0 4px 2px 4px;
+  
+  font-size: 4em;
+  text-transform: uppercase;
+  float: left;
+  margin-right: 10px;
+}
+
+.tile h2 {
+  margin: 0;
+  line-height: 2.5em;
+  height: 1em;
+}
+.tile h4 {
+  float: right;
+  line-height: 2.5em;
+  height: 1em;
+  color: @keycolor;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.rounded-corners (@radius: 5px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+
 /*
  * HTML5 Boilerplate
  *
@@ -41,8 +182,8 @@ body, button, input, select, textarea { font-family: sans-serif; color: #222; }
  * Also: hot pink!
  */
 
-::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
-::selection { background: #fe57a1; color: #fff; text-shadow: none; }
+::-moz-selection { background: @keycolor-selection; color: #fff; text-shadow: none; }
+::selection { background: @keycolor-selection; color: #fff; text-shadow: none; }
 
 
 /* =============================================================================

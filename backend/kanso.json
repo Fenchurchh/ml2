@@ -2,12 +2,21 @@
     "name": "backend",
     "version": "0.0.1",
     "description": "the makellos backend",
-    "attachments": [ "index.html", "css", "js" ],
+    "attachments": [ "index.html", "js", "img" ],
     "modules": [ "lib" ],
     "load": "lib/app", 
+    
+    "less": {
+      "compile": [ "css/style.less" ],
+      "compress": false
+    },
+    
     "dependencies": {
+        "less-precompiler": null,
         "attachments": null,
         "properties": null,
-        "modules": null    
-}
+        "modules": null,
+        "backbone": null,
+        "underscore": null
+    }
 }
