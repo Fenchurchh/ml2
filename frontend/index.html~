@@ -18,13 +18,13 @@
 
 <div id="container">
 	<header>
-   header
+   d
 	</header>
 	<div id="main" role="main">
-div#main
+
 	</div>
 	<footer>
-footer
+
 	</footer>
 </div> <!--! end of #container -->
 

@@ -1,0 +1,9 @@
+{
+    "name": "frontend",
+    "version": "0.0.1",
+    "description": "the makellos browser frontend",
+    "attachments": ["index.html", "css", "js"],
+    "dependencies": {
+        "attachments": null       
+    }
+}
